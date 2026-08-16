@@ -73,6 +73,95 @@
                                 </ul>
                             </li>
                             <li class="scroll-to-section"><a href="#explore"></a></li>
+                          <!-- Language translations (data-i18n) -->
+<script>
+  (function(){
+    const defaultLang = 'en';
+    const supported = ['en','pt'];
+    const translations = {
+      'nav.home': { en: 'Home', pt: 'Início' },
+      'nav.women': { en: 'Women', pt: 'Mulheres' },
+      'nav.men': { en: 'T-shirts/Hoodies', pt: 'T-shirts/Moletons' },
+      'nav.men2': { en: 'Joggers/Shorts', pt: 'Manjucos/Calções' },
+      'nav.accessories': { en: 'Accessories', pt: 'Acessórios' },
+      'nav.pages': { en: 'Pages', pt: 'Páginas' },
+      'nav.about': { en: 'About Us', pt: 'Sobre nós' },
+      'nav.links': { en: 'Links', pt: 'Links' },
+
+      'banner.lead': { en: 'Build a life worth waking up for.', pt: 'Construa uma vida que valha a pena acordar de manhã para viver.' },
+      'banner.cta': { en: 'Feel rich!', pt: 'Sinta-se rico!' },
+      'btn.seemore': { en: 'See more.', pt: 'Ver mais.' },
+
+      'section.men.title': { en: 'New in T-shirts/Hoodies', pt: 'Novidades em T-shirts/Moletons' },
+      'section.men.subtitle': { en: 'Slide sideways to see more.', pt: 'Deslize para os lados para ver mais.' },
+      'section.women.title': { en: 'New in Joggers/Shorts', pt: 'Novidades em Manjucos/Calções' },
+      'section.women.subtitle': { en: 'Slide sideways to see more.', pt: 'Deslize para os lados para ver mais.' },
+      'section.kids.title': { en: 'New in accessories', pt: 'Novidades em acessórios' },
+      'section.kids.subtitle': { en: 'Slide sideways to see more.', pt: 'Deslize para os lados para ver mais.' },
+
+      'explore.title': { en: 'Explore our products', pt: 'Explore nossos produtos' },
+      'explore.lead': { en: 'Leather products – belts, bags and keychains created for you who work hard and conquer the impossible.', pt: 'Produtos em couro – cintos, bolsas e chaveiros c[...]
+      'explore.quote': { en: 'What you wear sends a message..', pt: 'O que você veste transmite uma mensagem..' },
+      'explore.p1': { en: 'Each piece is designed for ambitious people like you: refined details, good quality and a touch of accessible luxury that inspires every day.', pt: 'Cada peça é d[...]
+      'explore.p2': { en: 'The energy you invest in your hustle returns multiplied into wealth. Start here, with items that elevate your status.', pt: 'A energia que investes no teu hustle vo[...]
+      'explore.cta': { en: 'Feel rich.', pt: 'Sinta-se rico.' },
+      'explore.belts': { en: 'Leather belts', pt: 'Cintos de couro' },
+      'explore.bags': { en: 'Leather bags', pt: 'Bolsas de couro' },
+      'explore.available': { en: 'Available soon', pt: 'Disponível em breve' },
+
+      'subscribe.store': { en: 'Store location:', pt: 'Localização da loja:' },
+      'subscribe.whatsapp': { en: 'WhatsApp:', pt: 'WhatsApp:' },
+      'subscribe.office': { en: 'Office location:', pt: 'Localização do escritório:' },
+      'subscribe.hours': { en: 'Working hours:', pt: 'Horário de trabalho:' },
+      'subscribe.email': { en: 'Email:', pt: 'Email:' },
+      'subscribe.social': { en: 'Social Networks:', pt: 'Redes Sociais:' },
+
+      'footer.online': { en: 'Online store', pt: 'Loja on-line' },
+      'footer.shopping': { en: 'Shopping & categories', pt: 'Compras & categorias' },
+      'footer.men': { en: "Men's shopping", pt: 'Compras masculinas' },
+      'footer.women': { en: "Women's shopping", pt: 'Compras femeninas' },
+      'footer.accessories': { en: 'Accessories', pt: 'Acessórios' },
+      'footer.useful': { en: 'Useful links', pt: 'Links úteis' },
+      'footer.home': { en: 'Home page', pt: 'Página inicial' },
+      'footer.about': { en: 'About us', pt: 'Sobre nós' },
+      'footer.help': { en: 'Help', pt: 'Ajuda' },
+      'footer.help_title': { en: 'Help & Information', pt: 'Ajuda & Informação' },
+      'footer.faq': { en: 'Frequently Asked Questions', pt: 'Perguntas frequentes' },
+      'footer.shipping': { en: 'Shipping', pt: 'Envio' },
+      'footer.copyright': { en: 'Copyright © 2026 Sinta-se Rico All rights reserved.', pt: 'Copyright © 2026 Sinta-se Rico Todos os direitos reservados.' }
+    };
+
+    function applyLanguage(lang){
+      if(!supported.includes(lang)) lang = defaultLang;
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if(translations[key] && translations[key][lang] !== undefined){
+          el.textContent = translations[key][lang];
+        }
+      });
+      // update lang button
+      const btn = document.getElementById('lang-btn');
+      if(btn) btn.textContent = lang.toUpperCase();
+      try{ localStorage.setItem('siteLang', lang); }catch(e){}
+    }
+
+    document.addEventListener('DOMContentLoaded', function(){
+      const saved = localStorage.getItem('siteLang') || defaultLang;
+      applyLanguage(saved);
+      const btn = document.getElementById('lang-btn');
+      if(btn){
+        btn.addEventListener('click', function(){
+          const current = localStorage.getItem('siteLang') || defaultLang;
+          const next = current === 'en' ? 'pt' : 'en';
+          applyLanguage(next);
+        });
+      }
+    });
+
+    window.applyLanguage = applyLanguage;
+  })();
+</script>
                         </ul>        
                         <a class='menu-trigger'>
                             <span>Menu</span>
