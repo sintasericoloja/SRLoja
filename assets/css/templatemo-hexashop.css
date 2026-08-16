@@ -2412,3 +2412,50 @@ responsive
     font-size: 15px;
   }
 }
+
+/* ===== Language Toggle Button ===== */
+.lang-menu {
+  display: inline-block;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+#lang-btn {
+  background: transparent;
+  border: 1px solid rgba(42, 42, 42, 0.3);
+  color: #2a2a2a;
+  padding: 6px 11px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 1;
+  letter-spacing: 0.5px;
+  transition: all 0.25s ease;
+}
+
+#lang-btn:hover {
+  background: rgba(42, 42, 42, 0.08);
+  border-color: #2a2a2a;
+}
+
+/* When header becomes sticky */
+.header-area.background-header #lang-btn,
+.header-area.header-sticky #lang-btn {
+  color: #2a2a2a;
+  border-color: rgba(42, 42, 42, 0.35);
+}
+
+/* Mobile adjustments */
+@media (max-width: 767px) {
+  .lang-menu {
+    display: block;
+    margin: 12px 0 8px 15px;
+  }
+
+  #lang-btn {
+    width: auto;
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}
