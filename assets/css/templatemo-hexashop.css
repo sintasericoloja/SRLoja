@@ -2394,3 +2394,21 @@ responsive
     height: auto;
   }
 }
+
+/* Better touch targets & spacing on small screens */
+@media (max-width: 767px) {
+  .header-area .main-nav .logo img {
+    max-height: 50px;
+  }
+  .main-border-button a,
+  .main-white-button a {
+    padding: 14px 22px;
+    font-size: 14px;
+  }
+  #products .item .down-content h4 {
+    font-size: 16px;
+  }
+  #products .item .down-content span {
+    font-size: 15px;
+  }
+}
